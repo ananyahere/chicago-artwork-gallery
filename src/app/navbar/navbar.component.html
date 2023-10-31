@@ -1,0 +1,15 @@
+<nav class="navbar" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+        <a 
+          class="navbar-brand"
+          routerLink="/"
+        ><b>ARTWORK LISTING</b></a>
+        <button 
+          [disabled]="onHomePage"
+          class="btn btn-outline-primary"
+          (click)="onShowSearch()"
+        >
+          {{!showSearch ? 'Open' : 'Close'}} Search Artwork
+        </button>
+      </div>
+</nav>

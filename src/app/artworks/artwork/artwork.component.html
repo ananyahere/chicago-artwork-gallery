@@ -1,0 +1,21 @@
+<div class="card shadow-sm">
+    <img width="100%" 
+        height="350" 
+        [src]="'https://www.artic.edu/iiif/2/'+ artwork.image_id +'/full/843,/0/default.jpg'"
+        class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">By {{artwork.artist_display}}</h5>
+      <p class="card-text">
+        {{artwork.title}}
+      </p>
+      <div class="d-flex justify-content-between align-items-center">
+        <p><a class="link-underline-light" (click)="onViewArtwork(artwork.id)">View</a></p>
+        <p><a 
+          class="link-underline-light" 
+          (click)="addToFavorites()"
+          >
+          {{isFav ? 'Already in Favorites' : 'Add to Favorites'}}
+          </a></p>
+      </div>
+    </div>
+</div>

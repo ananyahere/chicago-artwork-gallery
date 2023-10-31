@@ -1,0 +1,79 @@
+<div class="album py-5 bg-light">
+    <div class="form-container" *ngIf="isDisplaySearch">
+        <div class="d-flex justify-content-center align-item-center">
+            <form [formGroup]="fullTextSeachForm">
+                <mat-form-field>
+                    <mat-label>Metadata</mat-label>
+                    <input 
+                        matInput 
+                        placeholder="Ex. ium"
+                        formControlName="text"
+                    >
+                    <button 
+                        mat-button 
+                        matSuffix 
+                        mat-stroked-button 
+                        aria-label="search"
+                        (click)="onFullTextSearch()"
+                    >
+                      <mat-icon>search</mat-icon>
+                    </button>
+                </mat-form-field>
+              </form>
+        </div>
+        <div class="d-flex justify-content-center align-item-center">
+            <form [formGroup]="filterForm">
+              <mat-form-field class="mx-3">
+                <mat-label>Title</mat-label>
+                <input 
+                    matInput 
+                    placeholder="Ex. ium" 
+                    formControlName="title"
+                >
+              </mat-form-field>
+              <mat-form-field class="mx-3">
+                <mat-label>Artist</mat-label>
+                <input 
+                    matInput 
+                    placeholder="Ex. ium" 
+                    formControlName="artist"
+                >
+              </mat-form-field>
+              <mat-form-field class="mx-3">
+                <mat-label>Time Period</mat-label>
+                <input 
+                    matInput 
+                    placeholder="Ex. ium" 
+                    formControlName="period"
+                >
+              </mat-form-field>
+              <button
+                class="btn btn-outline-primary"
+                (click)="resetFilter()"
+              >
+                Reset
+              </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <app-artwork 
+                class="col" 
+                *ngFor="let artwork of artworks"
+                [artwork]="artwork"
+            ></app-artwork>
+        </div>
+    </div>
+
+    <mat-paginator #paginator
+               (page)="handlePageChange($event)"
+               [length]="paginatorLength"
+               [pageSize]="pageSize"
+               showFirstLastButtons
+               [pageSizeOptions]="[5, 10, 20, 100]"
+               [pageIndex]="pageIndex"
+               aria-label="Select page">
+    </mat-paginator>
+</div>

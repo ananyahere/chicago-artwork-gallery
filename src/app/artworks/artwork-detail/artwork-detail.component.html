@@ -1,0 +1,17 @@
+<div class="wrapper">
+    <div class="px-4 py-3 my-3 d-flex justify-content-center align-items-center">
+        <div class="card w-25 h-25">
+            <div class="card-body">
+                <h5 class="card-title">{{artwork.title}}</h5>
+                <p class="card-text">
+                    {{removeHTML(artwork.description)}}
+                </p>
+                <p class="card-text"><small class="text-muted">{{artwork.artist_display}}</small></p>
+            </div>
+            <img 
+            [src]="'https://www.artic.edu/iiif/2/'+ artwork.image_id +'/full/843,/0/default.jpg'" 
+            class="card-img-bottom" 
+            >
+        </div>
+    </div>
+</div>
